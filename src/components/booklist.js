@@ -10,7 +10,7 @@ export class BookList extends Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.map(book => (
-              <Book book={book}/>
+              <Book key={book.id} book={book}/>
             ))}
           </ol>
         </div>

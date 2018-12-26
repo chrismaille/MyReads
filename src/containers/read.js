@@ -6,7 +6,7 @@ export class Read extends Component {
     title: "Read",
     books: [
       {
-        id: 1,
+        id: 10,
         title: "The Hobbit",
         author: "J.R.R. Tolkien",
         cover: {
@@ -17,7 +17,7 @@ export class Read extends Component {
         }
       },
       {
-        id: 2,
+        id: 11,
         title: "Oh, the Places You'll Go!",
         author: "Seuss",
         cover: {
@@ -28,7 +28,7 @@ export class Read extends Component {
         }
       },
       {
-        id: 3,
+        id: 12,
         title: "The Adventures of Tom Sawyer",
         author: "Mark Twain",
         cover: {

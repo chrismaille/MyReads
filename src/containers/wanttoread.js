@@ -6,7 +6,7 @@ export class WantToRead extends Component {
     title: "Want to Read",
     books: [
       {
-        id: 1,
+        id: 20,
         title: "1776",
         author: "David McCullough",
         cover: {
@@ -17,7 +17,7 @@ export class WantToRead extends Component {
         }
       },
       {
-        id: 2,
+        id: 21,
         title: "Harry Potter and the Sorcerer's Stone",
         author: "J.K. Rowling",
         cover: {
