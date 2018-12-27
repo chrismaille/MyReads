@@ -7,7 +7,7 @@ export class SearchPage extends Component {
   render() {
     return (
       <div className="search-books">
-        <SearchBar onClick={this.props.onClick} />
+        <SearchBar/>
         <SearchResults />
       </div>
     );

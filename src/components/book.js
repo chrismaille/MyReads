@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 
 export class Book extends Component {
   render() {
+    const { title, author, cover } = this.props.book;
     return (
       <li>
         <div className="book">
@@ -11,15 +12,15 @@ export class Book extends Component {
             <div
               className="book-cover"
               style={{
-                width: this.props.book.cover.coverWidth,
-                height: this.props.book.cover.coverHeight,
-                backgroundImage: `url(${this.props.book.cover.coverUrl})`
+                width: cover.coverWidth,
+                height: cover.coverHeight,
+                backgroundImage: `url(${cover.coverUrl})`
               }}
             />
             <ActionsMenu/>
           </div>
-          <div className="book-title">{this.props.book.title}</div>
-          <div className="book-authors">{this.props.book.author}</div>
+          <div className="book-title">{title}</div>
+          <div className="book-authors">{author}</div>
         </div>
       </li>
     );
