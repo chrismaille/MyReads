@@ -26,7 +26,7 @@ export class BooksPage extends Component {
       <div className="list-books">
         <Header />
         <BookShelf />
-        <SearchButton onClick={this.props.onClick} />
+        <SearchButton/>
       </div>
     );
   }

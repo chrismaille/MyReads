@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import * as PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export class SearchButton extends Component {
   render() {
     return (
-      <div className="open-search">
-        <button onClick={this.props.onClick}>Add a book</button>
-      </div>
+      <Link className="open-search" to={"/search"}>
+        Add a book
+      </Link>
     );
   }
 }
