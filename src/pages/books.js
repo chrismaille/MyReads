@@ -2,19 +2,45 @@ import React, { Component } from "react";
 import * as PropTypes from "prop-types";
 import Header from "../components/header";
 import { SearchButton } from "../components/searchbutton";
-import { CurrentlyReading } from "../containers/currentreading";
-import { WantToRead } from "../containers/wanttoread";
-import { Read } from "../containers/read";
+import { getAll } from "../BooksAPI";
+import { BookList } from "../components/booklist";
+
+const camelCase = require("lodash/camelCase");
 
 class BookShelf extends Component {
+  state = { shelfs: [] };
+
+  componentDidMount() {
+    getAll().then(books =>
+      this.setState({
+        shelfs: [
+          {
+            title: "Currently Reading",
+            books: books.filter(book => book.shelf === "currentlyReading")
+          },
+          {
+            title: "Want to Read",
+            books: books.filter(book => book.shelf === "wantToRead")
+          },
+          {
+            title: "Read",
+            books: books.filter(book => book.shelf === "read")
+          }
+        ]
+      })
+    );
+  }
+
   render() {
     return (
       <div className="list-books-content">
-        <div>
-          <CurrentlyReading />
-          <WantToRead />
-          <Read />
-        </div>
+        {this.state.shelfs.map(shelf => (
+          <BookList
+            key={camelCase(shelf.title)}
+            title={shelf.title}
+            books={shelf.books}
+          />
+        ))}
       </div>
     );
   }
