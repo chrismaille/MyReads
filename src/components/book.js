@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { ActionsMenu } from "./actionsmenu";
 import * as PropTypes from "prop-types";
 
+const camelCase = require("lodash/camelCase");
+
 export class Book extends Component {
   render() {
-    const { title, author, cover } = this.props.book;
+    const { title, authors, imageLinks, id } = this.props.book;
     return (
       <li>
         <div className="book">
@@ -12,15 +14,19 @@ export class Book extends Component {
             <div
               className="book-cover"
               style={{
-                width: cover.coverWidth,
-                height: cover.coverHeight,
-                backgroundImage: `url(${cover.coverUrl})`
+                width: 128,
+                height: 192,
+                backgroundImage: `url(${imageLinks.smallThumbnail})`
               }}
             />
             <ActionsMenu/>
           </div>
           <div className="book-title">{title}</div>
-          <div className="book-authors">{author}</div>
+          {authors.map(author => (
+            <div key={camelCase(`${id}${author}`)} className="book-authors">
+              {author}
+            </div>
+          ))}
         </div>
       </li>
     );
