@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { ActionsMenu } from "./actionsmenu";
 import * as PropTypes from "prop-types";
+import { BookShelfConsumer } from "../pages/books";
 
 const camelCase = require("lodash/camelCase");
 
 export class Book extends Component {
   render() {
-    const { title, authors, imageLinks, id } = this.props.book;
+    const { title, authors, imageLinks, id, shelf } = this.props.book;
     return (
       <li>
         <div className="book">
@@ -19,7 +20,15 @@ export class Book extends Component {
                 backgroundImage: `url(${imageLinks.smallThumbnail})`
               }}
             />
-            <ActionsMenu/>
+            <BookShelfConsumer>
+              {({ handleClick }) => (
+                <ActionsMenu
+                  bookId={id}
+                  fromShelf={shelf}
+                  handleOnClick={handleClick}
+                />
+              )}
+            </BookShelfConsumer>
           </div>
           <div className="book-title">{title}</div>
           {authors.map(author => (
