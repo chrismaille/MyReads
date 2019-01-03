@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as PropTypes from "prop-types";
 import Header from "../components/header";
 import { SearchButton } from "../components/searchbutton";
-import { getAll } from "../BooksAPI";
+import { getAll, update } from "../BooksAPI";
 import { BookList } from "../components/booklist";
 import Loading from "../components/loading";
 
@@ -28,16 +28,12 @@ class BookShelf extends Component {
     );
 
     // Find current book
-    const currentBook = _.find(
-      currentShelf.books,
-      book => book.id === bookId
-    );
+    const currentBook = _.find(currentShelf.books, book => book.id === bookId);
 
     // Update both shelves (move book on one to another)
-    currentShelf.books = currentShelf.books.filter(
-      book => book.id !== bookId
-    );
+    currentShelf.books = currentShelf.books.filter(book => book.id !== bookId);
     destinationShelf.books.push(currentBook);
+    currentBook.shelf = toShelf;
 
     // Recreate shelves array
     const updatedShelves = this.state.shelves.map(shelf => {
@@ -59,7 +55,9 @@ class BookShelf extends Component {
       }
     });
     // Update state
-    this.setState({ shelves: updatedShelves });
+    update(currentBook, toShelf).then(() => {
+      this.setState({ shelves: updatedShelves });
+    });
   };
 
   componentDidMount() {
