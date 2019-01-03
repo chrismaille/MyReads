@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-
+import { camelCase } from "lodash";
+import { Action } from "./action";
 
 export class ActionsMenu extends Component {
-
   render() {
     const { fromShelf, bookId, handleOnClick } = this.props;
-
-    const isSameShelf = name => {
-      return name === fromShelf;
-    };
+    const { shelves } = this.props.data;
 
     return (
       <div className="book-shelf-changer">
@@ -16,44 +13,18 @@ export class ActionsMenu extends Component {
           <option value="move" disabled>
             Move to...
           </option>
-
-          <option
-            value="currentlyReading"
-            disabled={isSameShelf("currentlyReading")}
-            onClick={() => handleOnClick({
-              fromShelf: fromShelf,
-              toShelf: "currentlyReading",
-              bookId: bookId
-            })}
-          >
-            Currently Reading
-          </option>
-          <option
-            value="wantToRead"
-            disabled={isSameShelf("wantToRead")}
-            onClick={() => handleOnClick({
-              fromShelf: fromShelf,
-              toShelf: "wantToRead",
-              bookId: bookId
-            })}
-          >
-            Want to Read
-          </option>
-          <option
-            value="read"
-            disabled={isSameShelf("read")}
-            onClick={() => handleOnClick({
-              fromShelf: fromShelf,
-              toShelf: "read",
-              bookId: bookId
-            })}
-          >
-            Read
-          </option>
+          {shelves.map(shelf => (
+            <Action
+              bookId={bookId}
+              fromShelf={fromShelf}
+              handleOnClick={handleOnClick}
+              title={shelf.title}
+              key={`${camelCase(shelf.title)}${bookId}`}
+            />
+          ))}
           <option value="none">None</option>
         </select>
       </div>
     );
   }
 }
-

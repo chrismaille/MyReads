@@ -21,11 +21,12 @@ export class Book extends Component {
               }}
             />
             <BookShelfConsumer>
-              {({ handleClick }) => (
+              {({ handleClick, data }) => (
                 <ActionsMenu
                   bookId={id}
                   fromShelf={shelf}
                   handleOnClick={handleClick}
+                  data={data}
                 />
               )}
             </BookShelfConsumer>
