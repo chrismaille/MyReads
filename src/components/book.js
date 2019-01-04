@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ActionsMenu } from "./actionsmenu";
 import * as PropTypes from "prop-types";
-import { BookShelfConsumer } from "../pages/books";
+import { BookShelfConsumer } from "../App";
 
 const camelCase = require("lodash/camelCase");
 
