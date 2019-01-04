@@ -2,7 +2,7 @@
 
 ##### Udacity React MyReads Project
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/807ffd34f4b14473874775a49a4eee76)](https://www.codacy.com/app/chrismaille/MyReads?utm_source=github.com&utm_medium=referral&utm_content=chrismaille/MyReads&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ad4d7365895e48399afd3d060f89a385)](https://www.codacy.com/app/chrismaille/MyReads?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chrismaille/MyReads&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fcc95f4a8d2d84dbf06b/maintainability)](https://codeclimate.com/github/chrismaille/MyReads/maintainability)
 
 ### Reference:
