@@ -220,3 +220,7 @@ button:active {
     font-weight: bold;
     text-shadow: 0 2px 5px black;
 }
+
+.toast-msg b {
+    color: green;
+}
