@@ -1,10 +1,8 @@
 import { camelCase } from "lodash";
 import React from "react";
 
-export const Action = ({ fromShelf, bookId, handleOnClick, title }) => {
-  const isSameShelf = name => {
-    return name === fromShelf;
-  };
+const Action = ({ fromShelf, book, handleOnClick, title }) => {
+  const isSameShelf = name => name === fromShelf;
   const titleKey = camelCase(title);
 
   return (
@@ -13,9 +11,9 @@ export const Action = ({ fromShelf, bookId, handleOnClick, title }) => {
       disabled={isSameShelf(titleKey)}
       onClick={() =>
         handleOnClick({
-          fromShelf: fromShelf,
+          fromShelf,
           toShelf: titleKey,
-          bookId: bookId
+          book
         })
       }
     >
@@ -24,3 +22,5 @@ export const Action = ({ fromShelf, bookId, handleOnClick, title }) => {
     </option>
   );
 };
+
+export default Action;

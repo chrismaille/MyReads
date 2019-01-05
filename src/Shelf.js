@@ -1,15 +1,16 @@
 import * as _ from "lodash";
 
+export const getShelf = (state, key) =>
+  _.find(state.shelves, shelf => key === _.camelCase(shelf.title));
 
-export const getShelf = (state, key) => {
-  return _.find(
-    state.shelves,
-    shelf => key === _.camelCase(shelf.title)
-  );
-};
-
-export const getBook = (shelf, bookId) => {
-  return _.find(shelf.books, book => book.id === bookId);
+// eslint-disable-next-line consistent-return
+export const findShelf = (book, shelves) => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const shelf of shelves) {
+    if (_.find(shelf.books, bookInShelf => bookInShelf.id === book.id)) {
+      return _.camelCase(shelf.title);
+    }
+  }
 };
 
 export const updateShelf = (
@@ -18,23 +19,22 @@ export const updateShelf = (
   currentShelf,
   toShelf,
   destinationShelf
-) => {
-  return state.shelves.map(shelf => {
+) =>
+  state.shelves.map(shelf => {
     if (_.camelCase(shelf.title) === fromShelf) {
       return {
         title: shelf.title,
         books: currentShelf.books
       };
-    } else if (_.camelCase(shelf.title) === toShelf) {
+    }
+    if (_.camelCase(shelf.title) === toShelf) {
       return {
         title: shelf.title,
         books: destinationShelf.books
       };
-    } else {
-      return {
-        title: shelf.title,
-        books: shelf.books
-      };
     }
+    return {
+      title: shelf.title,
+      books: shelf.books
+    };
   });
-};
