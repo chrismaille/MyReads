@@ -42,6 +42,12 @@ class BooksApp extends React.Component {
 
   notify = data => toast(<ToastMsg data={data} />);
 
+  /**
+   * @description Main App logic
+   * @param {object} book - Object representing the Book
+   * @param {string} fromShelf - slug representing Book's current Shelf (optional)
+   * @param {string} toShelf - slug representing destination Shelf
+   */
   moveToAnotherShelf = ({ book, fromShelf, toShelf }) => {
     // Find current shelves
     const currentShelf = fromShelf ? getShelf(this.state, fromShelf) : null;

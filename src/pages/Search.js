@@ -13,6 +13,10 @@ class SearchPage extends Component {
     searchList: []
   };
 
+  /**
+   * @description Make search input element a controlled component
+   * @param event - DOM event for the element
+   */
   updateTerm = event => {
     clearTimeout(this.timeout);
     const { value } = event.target;
@@ -25,6 +29,9 @@ class SearchPage extends Component {
     }, 800);
   };
 
+  /**
+   * @description Check for new API request for /search
+   */
   checkTerm = () => {
     const { newSearch, oldSearch } = this.state;
     if (newSearch !== oldSearch && newSearch.length > 2) {
@@ -32,6 +39,9 @@ class SearchPage extends Component {
     }
   };
 
+  /**
+   * @description Make the /search API request
+   */
   searchTerm = () => {
     const { newSearch } = this.state;
     const { shelves } = this.props;

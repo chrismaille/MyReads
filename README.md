@@ -5,6 +5,19 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ad4d7365895e48399afd3d060f89a385)](https://www.codacy.com/app/chrismaille/MyReads?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chrismaille/MyReads&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fcc95f4a8d2d84dbf06b/maintainability)](https://codeclimate.com/github/chrismaille/MyReads/maintainability)
 
+This app permits you can search, collect and organize your books in
+virtual shelves:
+* Currently Reading
+* Want To Read
+* Read
+
+Just use the **Action Menu** on the book to move them between shelves. To
+add another book, click on the **"Search"** button and type one of the
+[search terms](https://github.com/chrismaille/MyReads/blob/master/SEARCH_TERMS.md)
+available for this app.
+
+Enjoy!
+
 ### Reference:
 
 * [Original README](README_original.md)

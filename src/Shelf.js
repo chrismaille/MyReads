@@ -1,5 +1,11 @@
 import * as _ from "lodash";
 
+/**
+ * Find Shelf
+ * @param state - App State
+ * @param key - slug for shelf
+ * @returns {object} - Shelf
+ */
 export const getShelf = (state, key) =>
   _.find(state.shelves, shelf => key === _.camelCase(shelf.title));
 
@@ -13,6 +19,15 @@ export const findShelf = (book, shelves) => {
   }
 };
 
+/**
+ * @description Recreates shelf array for setState
+ * @param {object} state - Current State
+ * @param {object} fromShelf - current shelf (optional)
+ * @param {string} currentShelf - slug for current shelf (optional)
+ * @param {string} toShelf - slug for destination shelf
+ * @param {object} destinationShelf - destination shelf
+ * @returns {any[]}
+ */
 export const updateShelf = (
   state,
   fromShelf,
