@@ -16,6 +16,7 @@ body,
 /* main page */
 
 .list-books-title {
+  font-family: 'Thasadith', sans-serif;
   padding: 10px 0;
   background: #2e7c31;
   text-align: center;
@@ -43,7 +44,9 @@ body,
 }
 
 .bookshelf-title {
+  font-family: 'Raleway', sans-serif;
   border-bottom: 1px solid #dedede;
+  color: #60ac5d;
 }
 
 .bookshelf-books {
@@ -58,9 +61,9 @@ body,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-    background: #2e7d32 url("./icons/add.svg") no-repeat center;
+  background: #2e7d32 url("./icons/add.svg") no-repeat center;
   background-size: 28px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
   outline: 0;
 }
@@ -78,7 +81,7 @@ body,
   left: 0;
   z-index: 5;
   display: flex;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
 }
 
 .search-books-input-wrapper {
@@ -100,7 +103,7 @@ body,
   left: 15px;
   width: 50px;
   height: 53px;
-    background-image: url("./icons/arrow-back.svg");
+  background-image: url("./icons/arrow-back.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 28px;
@@ -165,9 +168,9 @@ button:active {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-    background: #60ac5d url("./icons/arrow-drop-down.svg") no-repeat center;
+  background: #60ac5d url("./icons/arrow-drop-down.svg") no-repeat center;
   background-size: 20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .book-shelf-changer select {
@@ -180,7 +183,7 @@ button:active {
 /* book cover */
 
 .book-cover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background: #eee;
 }
 
@@ -192,35 +195,35 @@ button:active {
 
 /* Loading */
 .overlay-content {
-    display: flex;
-    width: 100%;
-    left: 0;
-    top: 0;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
-    position: fixed;
-    z-index: 999999;
-    background: rgba(0, 0, 0, 0.75);
-    flex-direction: column;
+  display: flex;
+  width: 100%;
+  left: 0;
+  top: 0;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.75);
+  flex-direction: column;
 }
 
 .overlay-content .wrapper {
-    display: inherit;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: inherit;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .overlay-content .wrapper .message {
-    margin-top: 20px;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0 2px 5px black;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 2px 5px black;
 }
 
 .toast-msg b {
-    color: green;
+  color: green;
 }
