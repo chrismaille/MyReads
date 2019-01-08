@@ -18,26 +18,28 @@ export const BookShelfConsumer = Context.Consumer;
 class BooksApp extends React.Component {
   state = { shelves: [], loading: true };
 
-  componentDidMount() {
-    BooksAPI.getAll().then(books =>
-      this.setState({
-        loading: false,
-        shelves: [
-          {
-            title: "Currently Reading",
-            books: books.filter(book => book.shelf === "currentlyReading")
-          },
-          {
-            title: "Want to Read",
-            books: books.filter(book => book.shelf === "wantToRead")
-          },
-          {
-            title: "Read",
-            books: books.filter(book => book.shelf === "read")
-          }
-        ]
-      })
-    );
+  async componentDidMount() {
+    const books = await BooksAPI.getAll();
+    const filter = data => shelf => data.filter(book => book.shelf === shelf);
+    const getBooksInShelf = filter(books);
+
+    this.setState({
+      loading: false,
+      shelves: [
+        {
+          title: "Currently Reading",
+          books: getBooksInShelf("currentlyReading")
+        },
+        {
+          title: "Want to Read",
+          books: getBooksInShelf("wantToRead")
+        },
+        {
+          title: "Read",
+          books: getBooksInShelf("read")
+        }
+      ]
+    });
   }
 
   notify = data => toast(<ToastMsg data={data} />);
